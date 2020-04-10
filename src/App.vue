@@ -4,6 +4,7 @@
       app
       color="primary"
       dark
+      v-if="!['SignIn', 'SignUp'].includes(this.$route.name)"
     >
       <div class="d-flex align-center">
         <v-img
@@ -38,23 +39,17 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
 
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
-    //
-  }),
-};
+    // hideNav: false
+  })
+}
 </script>
