@@ -10,6 +10,7 @@ import {
   ValidationProvider,
   setInteractionMode
 } from 'vee-validate'
+import Vuebar from 'vuebar'
 
 setInteractionMode('eager')
 
@@ -39,6 +40,8 @@ extend('password', {
 Vue.config.productionTip = false
 Vue.component('ValidationProvider', ValidationProvider)
 Vue.component('ValidationObserver', ValidationObserver)
+
+Vue.use(Vuebar)
 
 new Vue({
   router,
