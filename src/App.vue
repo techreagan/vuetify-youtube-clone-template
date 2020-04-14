@@ -1,7 +1,8 @@
 <template>
   <v-app>
-    <NavBar v-if="!['SignIn', 'SignUp'].includes(this.$route.name)" />
-
+    <!-- <NavBar v-if="!['SignIn', 'SignUp'].includes(this.$route.name)" /> -->
+    <router-view name="NavBar"></router-view>
+    <router-view name="StudioNavBar"></router-view>
     <v-content
       :class="{
         'content-bg': !['SignIn', 'SignUp'].includes(this.$route.name)
@@ -15,17 +16,16 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar'
-
+// import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'App',
 
   data: () => ({
     // hideNav: false
-  }),
-  components: {
-    NavBar
-  }
+  })
+  // components: {
+  //   NavBar
+  // }
 }
 </script>
 

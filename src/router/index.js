@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import NavBar from '@/components/NavBar.vue'
+import StudioNavBar from '@/components/StudioNavBar.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +9,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    components: {
+      NavBar,
+      default: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
+    }
   },
   {
     path: '/about',
@@ -34,8 +38,29 @@ const routes = [
   {
     path: '/trending',
     name: 'Trending',
-    component: () =>
-      import(/* webpackChunkName: "signup" */ '../views/Trending.vue')
+    components: {
+      NavBar,
+      default: () =>
+        import(/* webpackChunkName: "trending" */ '../views/Trending.vue')
+    }
+  },
+  {
+    path: '/studio',
+    components: {
+      StudioNavBar,
+      default: () =>
+        import(/* webpackChunkName: "dashboard" */ '../views/Studio/Index.vue')
+    },
+    children: [
+      {
+        path: '/',
+        name: 'Dashboard',
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboard" */ '../views/Studio/Dashboard.vue'
+          )
+      }
+    ]
   }
 ]
 

@@ -1,7 +1,7 @@
 <template>
   <nav>
     <v-app-bar class="white" flat app clipped-left>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="font-weight-bold">VueTube</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
@@ -29,7 +29,7 @@
           </v-tooltip>
         </template>
         <v-list>
-          <v-list-item>
+          <v-list-item router to="/studio">
             <v-list-item-icon class="mr-3"
               ><v-icon>mdi-play-box-outline</v-icon></v-list-item-icon
             >
@@ -43,14 +43,7 @@
           </v-list-item>
         </v-list>
       </v-menu>
-      <!-- <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on"
-            ><v-icon size="25">mdi-video-plus</v-icon></v-btn
-          >
-        </template>
-        <span>Create a video and more</span>
-      </v-tooltip> -->
+
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on"> <v-icon size="25">mdi-apps</v-icon></v-btn>
@@ -65,16 +58,6 @@
         </template>
         <span>Notifications</span>
       </v-tooltip>
-      <!-- <v-btn icon>
-
-        <v-icon size="25">mdi-video-plus</v-icon>
-      </v-btn> -->
-      <!-- <v-btn icon>
-        <v-icon size="25">mdi-apps</v-icon>
-      </v-btn> -->
-      <!-- <v-btn icon class="mr-7">
-        <v-icon size="25">mdi-bell</v-icon>
-      </v-btn> -->
 
       <v-menu offset-y left>
         <template v-slot:activator="{ on }">
@@ -122,12 +105,6 @@
             </v-list-item>
           </v-list>
         </v-card>
-
-        <!-- <v-list>
-          <v-list-item router to="/logout">
-            <v-list-item-title>Logout</v-list-item-title>
-          </v-list-item>
-        </v-list> -->
       </v-menu>
     </v-app-bar>
 
@@ -342,6 +319,9 @@ export default {
     search() {
       console.log('hello')
     }
+  },
+  mounted() {
+    this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true
   }
 }
 </script>
