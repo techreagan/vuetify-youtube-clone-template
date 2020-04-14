@@ -4,18 +4,15 @@
       <h3 class="headline font-weight-medium">Recommended</h3>
       <v-row>
         <v-col
-          xs="6"
+          cols="12"
           sm="6"
           md="4"
           lg="3"
           v-for="i in loading ? 10 : 12"
           :key="i"
+          class="mx-xs-auto"
         >
-          <v-skeleton-loader
-            class="mx-auto"
-            type="card-avatar"
-            :loading="loading"
-          >
+          <v-skeleton-loader type="card-avatar" :loading="loading">
             <v-card class="content-bg card mx-auto" max-width="350" flat tile>
               <v-img
                 src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"

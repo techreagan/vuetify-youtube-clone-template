@@ -17,16 +17,64 @@
       <!-- <v-toolbar-title>Page title</v-toolbar-title> -->
 
       <v-spacer></v-spacer>
+      <v-menu offsetY>
+        <template v-slot:activator="{ on: menu }">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on: tooltip }">
+              <v-btn icon v-on="{ ...tooltip, ...menu }"
+                ><v-icon size="25">mdi-video-plus</v-icon></v-btn
+              >
+            </template>
+            <span>Create a video and more</span>
+          </v-tooltip>
+        </template>
+        <v-list>
+          <v-list-item>
+            <v-list-item-icon class="mr-3"
+              ><v-icon>mdi-play-box-outline</v-icon></v-list-item-icon
+            >
+            <v-list-item-title>Upload video</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon class="mr-3"
+              ><v-icon>mdi-access-point</v-icon></v-list-item-icon
+            >
+            <v-list-item-title>Go live</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <!-- <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on"
+            ><v-icon size="25">mdi-video-plus</v-icon></v-btn
+          >
+        </template>
+        <span>Create a video and more</span>
+      </v-tooltip> -->
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on"> <v-icon size="25">mdi-apps</v-icon></v-btn>
+        </template>
+        <span>VueTube apps</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on" class="mr-7">
+            <v-icon size="25">mdi-bell</v-icon></v-btn
+          >
+        </template>
+        <span>Notifications</span>
+      </v-tooltip>
+      <!-- <v-btn icon>
 
-      <v-btn icon>
         <v-icon size="25">mdi-video-plus</v-icon>
-      </v-btn>
-      <v-btn icon>
+      </v-btn> -->
+      <!-- <v-btn icon>
         <v-icon size="25">mdi-apps</v-icon>
-      </v-btn>
-      <v-btn icon class="mr-7">
+      </v-btn> -->
+      <!-- <v-btn icon class="mr-7">
         <v-icon size="25">mdi-bell</v-icon>
-      </v-btn>
+      </v-btn> -->
 
       <v-menu offset-y left>
         <template v-slot:activator="{ on }">
@@ -159,7 +207,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: true,
+    drawer: false,
     items: [
       {
         header: null,
