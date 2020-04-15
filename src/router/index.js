@@ -61,6 +61,24 @@ const routes = [
           )
       }
     ]
+  },
+  {
+    path: '/channels/:id',
+    components: {
+      NavBar,
+      default: () =>
+        import(/* webpackChunkName: "dashboard" */ '../views/Channel/Index.vue')
+    },
+    children: [
+      {
+        path: '/',
+        name: 'ChannelHome',
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboard" */ '../views/Channel/Home.vue'
+          )
+      }
+    ]
   }
 ]
 
