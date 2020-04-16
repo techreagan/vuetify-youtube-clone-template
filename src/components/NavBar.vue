@@ -108,7 +108,13 @@
       </v-menu>
     </v-app-bar>
 
-    <v-navigation-drawer v-model="drawer" clipped app id="nav">
+    <v-navigation-drawer
+      v-model="drawer"
+      :stateless="$route.name === 'Watch' ? true : false"
+      clipped
+      app
+      id="nav"
+    >
       <div tag="div" class="v-navigation-drawer__content" v-bar>
         <v-list dense nav class="py-0" tag="div">
           <v-list-item class="hidden-lg-and-up">
@@ -322,6 +328,7 @@ export default {
   },
   mounted() {
     this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true
+    this.drawer = this.$route.name === 'Watch' ? false : this.drawer
   }
 }
 </script>

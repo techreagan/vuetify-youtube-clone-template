@@ -79,6 +79,15 @@ const routes = [
           )
       }
     ]
+  },
+  {
+    path: '/watch/:id',
+    name: 'Watch',
+    components: {
+      NavBar,
+      default: () =>
+        import(/* webpackChunkName: "video" */ '../views/Watch.vue')
+    }
   }
 ]
 
