@@ -110,14 +110,19 @@
 
     <v-navigation-drawer
       v-model="drawer"
-      :stateless="$route.name === 'Watch' ? true : false"
-      clipped
-      app
+      :clipped="$route.name !== 'Watch'"
+      :app="$route.name !== 'Watch'"
+      :absolute="$route.name === 'Watch'"
+      :temporary="$route.name === 'Watch'"
       id="nav"
     >
       <div tag="div" class="v-navigation-drawer__content" v-bar>
         <v-list dense nav class="py-0" tag="div">
-          <v-list-item class="hidden-lg-and-up">
+          <v-list-item
+            :class="{
+              'hidden-lg-and-up': $route.name === 'Watch' ? false : true
+            }"
+          >
             <v-app-bar-nav-icon
               @click="drawer = !drawer"
               class="mr-5"
