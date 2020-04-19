@@ -175,21 +175,20 @@
                               <v-list-item-content
                                 class="align-self-auto mt-0 pt-0"
                               >
-                                <v-text-field
-                                  :ref="`${'input' + i}`"
-                                  class="pt-0 mt-0 body-2"
-                                  placeholder="Add a public comment..."
-                                  :id="`${'input' + i}`"
-                                >
-                                </v-text-field>
+                                <v-form :ref="`form${i}`">
+                                  <v-text-field
+                                    :ref="`${'input' + i}`"
+                                    class="pt-0 mt-0 body-2"
+                                    placeholder="Add a public comment..."
+                                    :value="repliesInput[`input${i}`]"
+                                  >
+                                  </v-text-field>
+                                </v-form>
                                 <div
                                   :ref="i + 'btns'"
                                   class="d-inline-block text-right"
                                 >
-                                  <v-btn
-                                    text
-                                    @click="hideReply(`${'reply' + i}`)"
-                                    small
+                                  <v-btn text @click="hideReply(i)" small
                                     >Cancel</v-btn
                                   >
                                   <v-btn
@@ -197,7 +196,7 @@
                                     depressed
                                     tile
                                     small
-                                    @click="addReply(1)"
+                                    @click="addReply(i)"
                                     >Reply</v-btn
                                   >
                                 </div>
@@ -301,6 +300,12 @@ export default {
   }),
 
   methods: {
+    // inputText(e, data) {
+    //   this.$refs[`form${id}`]
+    //   // console.log(this.repliesInput)
+    //   console.log(e, data)
+    //   // this.repliesInput[data] = e
+    // },
     getVideos() {
       this.video = {
         channelName: 'Tech Reagan',
@@ -315,27 +320,15 @@ export default {
       }
     },
     showReply(id) {
-      console.log(id)
-      this.repliesInput.id = ''
       this.$refs[id][0].classList.toggle('d-none')
-      // if (e.target.type !== 'button') return
-
-      // e.target.children.stopPropagation()
-      // console.log(e.target.children)
-
-      // console.log(this.$refs[id][0])
     },
-    showReplyBtn() {},
     hideReply(id) {
-      // conso
-
-      this.$refs[id][0].classList.toggle('d-none')
+      this.$refs[`form${id}`][0].reset()
+      this.$refs['reply' + id][0].classList.toggle('d-none')
     },
     addReply(id) {
-      // console.log(id)
-      console.log(this.repliesInput.id)
-      // console.log(this.$refs[`input${id}`][0])
-      console.log(this.$refs[`input${id}`][0])
+      this.$refs[`form${id}`][0].reset()
+      console.log(this.$refs[`input${id}`][0].$refs.input.value)
     },
     show(event) {
       if (event.target.innerText === 'SHOW MORE') {
