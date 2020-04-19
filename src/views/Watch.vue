@@ -13,7 +13,7 @@
               >
                 <v-responsive>
                   <video controls>
-                    <source :src="video.videoUrl" />
+                    <source :src="video.videoUrl" type="video/mp4" />
                   </video>
                 </v-responsive>
                 <v-card flat tile class="card">
