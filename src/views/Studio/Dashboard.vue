@@ -1,9 +1,31 @@
 <template>
   <div id="dashboard" class="pa-4">
     <v-container fluid>
-      <h2>channel dashboard</h2>
+      <div class="d-flex justify-space-between mb-5">
+        <h2>channel dashboard</h2>
+        <div class="right">
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on: tooltip }">
+              <v-btn class="mr-4 white" icon v-on="{ ...tooltip }"
+                ><v-icon size="25" class="small">mdi-upload</v-icon></v-btn
+              >
+            </template>
+            <span>Upload video</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <template v-slot:activator="{ on: tooltip }">
+              <v-btn class="white" icon v-on="{ ...tooltip }"
+                ><v-icon size="25" class="small"
+                  >mdi-access-point</v-icon
+                ></v-btn
+              >
+            </template>
+            <span>Go live</span>
+          </v-tooltip>
+        </div>
+      </div>
       <v-row>
-        <v-col cols="4">
+        <v-col cols="12" sm="6" md="4">
           <v-card class="mx-auto" outlined>
             <v-card-title>Latest video performance</v-card-title>
             <v-responsive class="mx-5">
@@ -53,7 +75,7 @@
             </v-card-actions>
           </v-card>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="6" md="4">
           <v-card class="mx-auto" outlined>
             <v-card-title>News</v-card-title>
             <v-responsive class="mx-5">
@@ -83,7 +105,7 @@
             </v-card-actions>
           </v-card>
         </v-col>
-        <v-col cols="4">
+        <v-col cols="12" sm="6" md="4">
           <v-card class="mx-auto" outlined>
             <v-card-title class="pl-5">Channel analytics</v-card-title>
 

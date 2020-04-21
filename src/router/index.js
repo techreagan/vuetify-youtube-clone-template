@@ -59,6 +59,12 @@ const routes = [
           import(
             /* webpackChunkName: "dashboard" */ '../views/Studio/Dashboard.vue'
           )
+      },
+      {
+        path: 'videos',
+        name: 'Video',
+        component: () =>
+          import(/* webpackChunkName: "video" */ '../views/Studio/Video.vue')
       }
     ]
   },

@@ -1,6 +1,6 @@
 <template>
   <nav id="studioBar">
-    <v-app-bar class="white" flat app clipped-left>
+    <v-app-bar class="white" app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="font-weight-bold">Studio</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -21,8 +21,14 @@
         <template v-slot:activator="{ on: menu }">
           <v-tooltip bottom>
             <template v-slot:activator="{ on: tooltip }">
-              <v-btn icon v-on="{ ...tooltip, ...menu }"
-                ><v-icon size="25">mdi-video-plus</v-icon></v-btn
+              <v-btn
+                class="mr-8 createVideoBtn"
+                outlined
+                v-on="{ ...tooltip, ...menu }"
+                ><v-icon size="25" class="red--text small"
+                  >mdi-video-plus</v-icon
+                >
+                Create</v-btn
               >
             </template>
             <span>Create a video and more</span>
@@ -43,21 +49,6 @@
           </v-list-item>
         </v-list>
       </v-menu>
-
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on"> <v-icon size="25">mdi-apps</v-icon></v-btn>
-        </template>
-        <span>VueTube apps</span>
-      </v-tooltip>
-      <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on" class="mr-7">
-            <v-icon size="25">mdi-bell</v-icon></v-btn
-          >
-        </template>
-        <span>Notifications</span>
-      </v-tooltip>
 
       <v-menu offset-y left>
         <template v-slot:activator="{ on }">
@@ -181,11 +172,9 @@
 
             <v-list-item link>
               <v-list-item-content>
-                <v-list-item-title class="title"
-                  >Sandra Adams</v-list-item-title
-                >
+                <v-list-item-title class="title">Tech Reagan</v-list-item-title>
                 <v-list-item-subtitle
-                  >sandra_a88@gmail.com</v-list-item-subtitle
+                  >techreagan1@gmail.com</v-list-item-subtitle
                 >
               </v-list-item-content>
             </v-list-item>
@@ -205,7 +194,11 @@ export default {
         header: 'scroll',
         pages: [
           { title: 'Dashboard', link: '/studio', icon: 'mdi-view-dashboard' },
-          { title: 'Videos', link: '/videos', icon: 'mdi-play-box-multiple' },
+          {
+            title: 'Videos',
+            link: '/studio/videos',
+            icon: 'mdi-play-box-multiple'
+          },
           {
             title: 'Playlists',
             link: '/playlists',
@@ -282,9 +275,12 @@ export default {
       color: #cc0202 !important;
     }
   }
-  .v-navigation-drawer__border {
-    width: 0 !important;
+  .createVideoBtn {
+    border-color: rgb(185, 181, 181);
   }
+  // .v-navigation-drawer__border {
+  //   width: 0 !important;
+  // }
 
   .vuebar-element {
     height: 250px;
