@@ -13,7 +13,14 @@
           class="mx-xs-auto"
         >
           <v-skeleton-loader type="card-avatar" :loading="loading">
-            <v-card class="content-bg card mx-auto" max-width="350" flat tile>
+            <v-card
+              class="content-bg card mx-auto"
+              max-width="350"
+              flat
+              tile
+              router
+              to="/watch/dd"
+            >
               <v-img
                 src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                 height="200px"

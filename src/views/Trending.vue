@@ -19,7 +19,7 @@
             tile
             large
           >
-            <v-card class="card" tile flat>
+            <v-card class="card" tile flat router to="/watch/dd">
               <v-row no-gutters>
                 <v-col class="mx-auto" cols="12" sm="8" md="5" lg="4">
                   <!-- <v-responsive max-height="100%"> -->
