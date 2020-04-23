@@ -35,7 +35,7 @@
           </v-tooltip>
         </template>
         <v-list>
-          <v-list-item router to="/studio/dashboard">
+          <v-list-item @click="modal">
             <v-list-item-icon class="mr-3"
               ><v-icon>mdi-play-box-outline</v-icon></v-list-item-icon
             >
@@ -182,11 +182,17 @@
         </div>
       </template>
     </v-navigation-drawer>
+    <upload-video-modal
+      :open-dialog="dialog"
+      v-on:closeDialog="dialog = false"
+    />
   </nav>
 </template>
 
 <script>
+import UploadVideoModal from '@/components/UploadVideoModal'
 export default {
+  name: 'StudioNavBar',
   data: () => ({
     drawer: false,
     items: [
@@ -252,12 +258,19 @@ export default {
           }
         ]
       }
-    ]
+    ],
+    dialog: false
   }),
   methods: {
     search() {
       console.log('hello')
+    },
+    modal() {
+      this.dialog = true
     }
+  },
+  components: {
+    UploadVideoModal
   },
   mounted() {
     this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true
