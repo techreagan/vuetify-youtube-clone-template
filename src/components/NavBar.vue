@@ -18,7 +18,6 @@
         @click:append="search"
         class="hidden-sm-and-down"
       ></v-text-field>
-      <!-- <v-toolbar-title>Page title</v-toolbar-title> -->
 
       <v-spacer></v-spacer>
       <v-menu offsetY>
@@ -114,9 +113,8 @@
 
     <v-navigation-drawer
       v-model="drawer"
+      app
       :clipped="$route.name !== 'Watch'"
-      :app="$route.name !== 'Watch'"
-      :absolute="$route.name === 'Watch'"
       :temporary="$route.name === 'Watch'"
       id="nav"
     >
@@ -132,9 +130,6 @@
               class="mr-5"
             ></v-app-bar-nav-icon>
             <v-toolbar-title class="font-weight-bold">VueTube</v-toolbar-title>
-            <!-- <h2 class="py-5 font-weight-bold">
-              VueTube
-            </h2> -->
           </v-list-item>
           <v-divider class="hidden-lg-and-up"></v-divider>
           <div v-for="parentItem in items" :key="parentItem.header">
@@ -169,8 +164,7 @@
             </v-list-item>
             <v-divider class="mt-2 mb-2"></v-divider>
           </div>
-          <!-- <v-list-item-content> -->
-          <!-- <v-list-item-title class="font-weight-regular"> -->
+
           <span v-for="link in links" :key="link.text">
             <span v-if="link.text === 'Terms'" class="mb-2 d-block"> </span>
             <v-btn
@@ -183,15 +177,8 @@
               >{{ link.text }}</v-btn
             >
           </span>
-          <!-- </v-list-item-title> -->
-          <!-- </v-list-item-content> -->
         </v-list>
       </div>
-      <!-- <template v-slot:append>
-        <div class="pa-2">
-          <v-btn block color="primary">Logout</v-btn>
-        </div>
-      </template> -->
     </v-navigation-drawer>
   </nav>
 </template>

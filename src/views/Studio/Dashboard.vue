@@ -6,7 +6,11 @@
         <div class="right">
           <v-tooltip bottom>
             <template v-slot:activator="{ on: tooltip }">
-              <v-btn class="mr-4 white" icon v-on="{ ...tooltip }"
+              <v-btn
+                @click="dialog = true"
+                class="mr-4 white"
+                icon
+                v-on="{ ...tooltip }"
                 ><v-icon size="25" class="small">mdi-upload</v-icon></v-btn
               >
             </template>
@@ -153,14 +157,23 @@
         </v-col>
       </v-row>
     </v-container>
+    <upload-video-modal
+      :open-dialog="dialog"
+      v-on:closeDialog="dialog = false"
+    />
   </div>
 </template>
 
 <script>
+import UploadVideoModal from '@/components/UploadVideoModal'
 export default {
   data: () => ({
-    loading: true
+    loading: true,
+    dialog: false
   }),
+  components: {
+    UploadVideoModal
+  },
   mounted() {}
 }
 </script>

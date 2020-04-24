@@ -235,6 +235,8 @@ export default {
       // }
     },
     submit() {
+      if (this.$route.name === 'Dashboard')
+        return this.$router.push('/studio/videos')
       console.log('submittied')
       this.closeModal()
     },

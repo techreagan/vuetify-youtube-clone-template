@@ -63,7 +63,12 @@
                       width="250px"
                       class="mr-1"
                     >
-                      <v-card class="content-bg card" max-width="250" flat tile>
+                      <video-card
+                        :card="{ maxWidth: 250, type: 'noAvatar' }"
+                        :video="video"
+                        :channel="channel"
+                      ></video-card>
+                      <!-- <v-card class="content-bg card" max-width="250" flat tile>
                         <v-img
                           src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                           height="200px"
@@ -85,7 +90,7 @@
                             </v-card-subtitle>
                           </v-col>
                         </v-row>
-                      </v-card>
+                      </v-card> -->
                     </v-skeleton-loader>
                   </v-slide-item>
                 </v-slide-group>
@@ -105,7 +110,12 @@
                     class="mx-xs-auto"
                   >
                     <v-skeleton-loader type="card-avatar" :loading="loading">
-                      <v-card
+                      <video-card
+                        :card="{ maxWidth: 350 }"
+                        :video="video"
+                        :channel="channel"
+                      ></video-card>
+                      <!-- <v-card
                         class="content-bg card mx-auto"
                         max-width="350"
                         flat
@@ -142,7 +152,7 @@
                             </v-card-subtitle>
                           </v-col>
                         </v-row>
-                      </v-card>
+                      </v-card> -->
                     </v-skeleton-loader>
                   </v-col>
                 </v-row>
@@ -157,12 +167,27 @@
 </template>
 
 <script>
+import VideoCard from '@/components/VideoCard'
 export default {
   data: () => ({
     tab: null,
     loading: true,
-    items: ['Home', 'Videos', 'Playlists', 'Community', 'Channels', 'about']
+    items: ['Home', 'Videos', 'Playlists', 'Community', 'Channels', 'about'],
+    video: {
+      url: '/watch/12',
+      thumb: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+      title: 'Top western road trips',
+      views: '9.6k',
+      createdAt: '6 hours ago'
+    },
+    channel: {
+      url: '/channels/12',
+      avatar: 'https://randomuser.me/api/portraits/men/1.jpg'
+    }
   }),
+  components: {
+    VideoCard
+  },
   mounted() {
     setTimeout(() => {
       this.loading = false
@@ -171,7 +196,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .nav-bgcolor {
   background: #f9f9f9;
 }
@@ -182,5 +207,9 @@ export default {
 
 .v-tab {
   margin-right: 4em;
+}
+
+#channel-home .v-list-item--link:before {
+  background-color: transparent;
 }
 </style>

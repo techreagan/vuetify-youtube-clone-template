@@ -211,26 +211,7 @@
                 </v-row>
               </v-skeleton-loader>
             </v-col>
-            <!-- <div class="d-none">
-                            <v-list-item-content class="align-self-auto ">
-                              <v-text-field
-                                v-model="comment"
-                                placeholder="Add a public reply..."
-                                @click="showReplyBtn"
-                              >
-                              </v-text-field>
-                              <div ref="replyBtns" class="d-none text-right">
-                                <v-btn text @click="hideReplyBtn">Cancel</v-btn>
-                                <v-btn
-                                  class="blue darken-3 white--text"
-                                  depressed
-                                  tile
-                                  @click="addReply"
-                                  >Comment</v-btn
-                                >
-                              </div>
-                            </v-list-item-content>
-                          </div> -->
+
             <v-col cols="12" sm="12" md="4" lg="4">
               <hr class="grey--text" />
               <h4 class="mb-3 mt-3">Up next</h4>
@@ -270,9 +251,6 @@
                             9.6k views<v-icon>mdi-circle-small</v-icon>6 hours
                             ago
                           </v-card-subtitle>
-                          <!-- <v-card-subtitle>
-
-                        </v-card-subtitle> -->
                         </div>
                       </v-col>
                     </v-row>
@@ -300,12 +278,6 @@ export default {
   }),
 
   methods: {
-    // inputText(e, data) {
-    //   this.$refs[`form${id}`]
-    //   // console.log(this.repliesInput)
-    //   console.log(e, data)
-    //   // this.repliesInput[data] = e
-    // },
     getVideos() {
       this.video = {
         channelName: 'Tech Reagan',
@@ -314,7 +286,6 @@ export default {
         views: '200,459',
         videoUrl: '/video.mp4',
         title: 'Attendance Management System',
-
         description:
           'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa vel inventore voluptatum reiciendis delectus quibusdam incidunt consequuntur, nostrum aperiam, natus quidem qui corrupti reprehenderit quaerat neque voluptatibus? Ullam, maiores temporibus!'
       }

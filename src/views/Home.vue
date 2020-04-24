@@ -13,7 +13,12 @@
           class="mx-xs-auto"
         >
           <v-skeleton-loader type="card-avatar" :loading="loading">
-            <v-card
+            <video-card
+              :card="{ maxWidth: 350 }"
+              :video="video"
+              :channel="channel"
+            ></video-card>
+            <!-- <v-card
               class="content-bg card mx-auto"
               max-width="350"
               flat
@@ -24,8 +29,6 @@
               <v-img
                 src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                 height="200px"
-                router
-                to="/watch/dd"
               ></v-img>
               <v-row no-gutters>
                 <v-col cols="2">
@@ -51,7 +54,7 @@
                   </v-card-subtitle>
                 </v-col>
               </v-row>
-            </v-card>
+            </v-card> -->
           </v-skeleton-loader>
         </v-col>
       </v-row>
@@ -60,14 +63,27 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import videoCard from '@/components/VideoCard'
 
 export default {
   name: 'Home',
   data: () => ({
-    loading: true
+    loading: true,
+    video: {
+      url: '/watch/12',
+      thumb: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+      title: 'Top western road trips',
+      views: '9.6k',
+      createdAt: '6 hours ago'
+    },
+    channel: {
+      url: '/channels/12',
+      avatar: 'https://randomuser.me/api/portraits/men/1.jpg'
+    }
   }),
+  components: {
+    videoCard
+  },
   mounted() {
     setTimeout(() => {
       this.loading = false
