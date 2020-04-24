@@ -110,6 +110,19 @@
                 </ValidationProvider>
                 <ValidationProvider
                   v-slot="{ errors }"
+                  name="Visibilty"
+                  rules="required|min:3"
+                >
+                  <v-select
+                    :items="visibilty"
+                    :error-messages="errors"
+                    filled
+                    label="Visibilty"
+                    v-model="formData.visibilty"
+                  ></v-select>
+                </ValidationProvider>
+                <ValidationProvider
+                  v-slot="{ errors }"
                   name="Cateogry"
                   rules="required|min:3"
                 >
@@ -182,10 +195,12 @@ export default {
           'Video size should be less than 5 MB!'
       ],
       categories: ['People', 'Technology', 'Fashion'],
+      visibilty: ['Public', 'Private'],
       formData: {
         title: '',
         description: '',
-        category: ''
+        category: '',
+        visibilty: ''
       },
       imgDataUrl: '',
       params: {

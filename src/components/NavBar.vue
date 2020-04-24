@@ -2,7 +2,11 @@
   <nav id="navbar">
     <v-app-bar class="white" flat app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="font-weight-bold">VueTube</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold"
+        ><router-link to="/" class="black--text" style="text-decoration: none"
+          >VueTube</router-link
+        ></v-toolbar-title
+      >
       <v-spacer></v-spacer>
       <v-text-field
         flat
@@ -85,7 +89,7 @@
           <v-divider></v-divider>
 
           <v-list>
-            <v-list-item router to="/logout">
+            <v-list-item router to="/channels/10">
               <v-list-item-icon>
                 <v-icon>mdi-account-box</v-icon>
               </v-list-item-icon>

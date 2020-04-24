@@ -148,7 +148,7 @@ export default {
   }),
   methods: {
     editItem(item) {
-      console.log(item)
+      this.$router.push({ name: `Detail`, params: { id: item.id } })
     },
     deleteBtn(item) {
       this.dialogDelete = true

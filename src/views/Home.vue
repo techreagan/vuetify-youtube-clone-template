@@ -19,15 +19,17 @@
               flat
               tile
               router
-              to="/watch/dd"
+              to="/watch/12"
             >
               <v-img
                 src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
                 height="200px"
+                router
+                to="/watch/dd"
               ></v-img>
               <v-row no-gutters>
                 <v-col cols="2">
-                  <v-list-item class="pl-0 pt-3">
+                  <v-list-item class="pl-0 pt-3" router to="/channels/12">
                     <v-list-item-avatar color="grey darken-3">
                       <v-img
                         class="elevation-6"

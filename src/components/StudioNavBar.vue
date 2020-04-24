@@ -2,7 +2,14 @@
   <nav id="studioBar">
     <v-app-bar class="white" app clipped-left>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="font-weight-bold">Studio</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold"
+        ><router-link
+          to="/studio"
+          class="black--text"
+          style="text-decoration: none"
+          >Studio</router-link
+        ></v-toolbar-title
+      >
       <v-spacer></v-spacer>
       <v-text-field
         flat
@@ -76,7 +83,7 @@
           <v-divider></v-divider>
 
           <v-list>
-            <v-list-item router to="/logout">
+            <v-list-item router to="/channels/10">
               <v-list-item-icon>
                 <v-icon>mdi-account-box</v-icon>
               </v-list-item-icon>
