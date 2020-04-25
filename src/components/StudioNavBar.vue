@@ -89,13 +89,13 @@
               </v-list-item-icon>
               <v-list-item-title>Your channel</v-list-item-title>
             </v-list-item>
-            <v-list-item router to="/logout">
+            <v-list-item router to="/studio">
               <v-list-item-icon>
                 <v-icon>mdi-youtube-studio</v-icon>
               </v-list-item-icon>
               <v-list-item-title>VueTube Studio</v-list-item-title>
             </v-list-item>
-            <v-list-item router to="/logout">
+            <v-list-item router to="/signin">
               <v-list-item-icon>
                 <v-icon>mdi-login-variant</v-icon>
               </v-list-item-icon>

@@ -100,7 +100,7 @@
               </v-list-item-icon>
               <v-list-item-title>VueTube Studio</v-list-item-title>
             </v-list-item>
-            <v-list-item router to="/logout">
+            <v-list-item router to="/signin">
               <v-list-item-icon>
                 <v-icon>mdi-login-variant</v-icon>
               </v-list-item-icon>
@@ -195,7 +195,7 @@ export default {
           { title: 'Trending', link: '/trending', icon: 'mdi-fire' },
           {
             title: 'Subscriptions',
-            link: '/subscriptions',
+            link: '#s',
             icon: 'mdi-youtube-subscription'
           }
         ]
@@ -205,29 +205,29 @@ export default {
         pages: [
           {
             title: 'Library',
-            link: '/library',
+            link: '#l',
             icon: 'mdi-play-box-multiple'
           },
           {
             title: 'History',
-            link: '/history',
+            link: '#h',
             icon: 'mdi-history'
           },
           {
             title: 'Your videos',
-            link: '/your-videos',
+            link: '#yv',
             icon: 'mdi-play-box-outline'
           },
 
           {
             title: 'Watch later',
-            link: '/watch-later',
+            link: '#wl',
             icon: 'mdi-clock'
           },
 
           {
             title: 'Liked videos',
-            link: '/liked-videos',
+            link: '#lw',
             icon: 'mdi-thumb-up'
           }
         ]
@@ -237,22 +237,22 @@ export default {
         pages: [
           {
             title: 'Traversy Media',
-            link: '/channels/traversy-media',
+            link: '#tm',
             icon: 'mdi-badge-account'
           },
           {
             title: 'The New Boston',
-            link: '/channels/the-new-boston',
+            link: '#tn',
             icon: 'mdi-badge-account'
           },
           {
             title: 'Net Ninija',
-            link: '/channels/net-ninija',
+            link: '#nn',
             icon: 'mdi-badge-account'
           },
           {
             title: 'Chris Hawks',
-            link: '/channels/chris-hawks',
+            link: '#ch',
             icon: 'mdi-badge-account'
           }
         ]
@@ -262,17 +262,17 @@ export default {
         pages: [
           {
             title: 'VueTube Premium',
-            link: '/more/vuetube-premium',
+            link: '#vp',
             icon: 'mdi-youtube'
           },
           {
             title: 'Gaming',
-            link: '/more/gaming',
+            link: '#g',
             icon: 'mdi-youtube-gaming'
           },
           {
             title: 'Live',
-            link: '/more/live',
+            link: '#li',
             icon: 'mdi-access-point'
           }
         ]
@@ -282,22 +282,22 @@ export default {
         pages: [
           {
             title: 'Setting',
-            link: '/settings',
+            link: '#sg',
             icon: 'mdi-cog'
           },
           {
             title: 'Report history',
-            link: '/report-history',
+            link: '#rh',
             icon: 'mdi-flag'
           },
           {
             title: 'Help',
-            link: '/help',
+            link: '#hp',
             icon: 'mdi-help-circle'
           },
           {
             title: 'Send feedback',
-            link: '/send-feedback',
+            link: '#f',
             icon: 'mdi-message-alert'
           }
         ]
