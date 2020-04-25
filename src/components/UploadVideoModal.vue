@@ -1,5 +1,10 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="1000">
+  <v-dialog
+    v-model="dialog"
+    persistent
+    transition="fab-transition"
+    max-width="1000"
+  >
     <v-card>
       <div class="d-flex justify-space-between mb-5" id="modal-header">
         <v-card-title class="py-3">Upload Video</v-card-title>
@@ -68,7 +73,17 @@
       <v-card-text v-else>
         <h2 class="mb-6">Details</h2>
         <v-row>
-          <v-col cols="8">
+          <v-col
+            order="last"
+            order-sm="last"
+            order-md="first"
+            order-lg="first"
+            order-xl="first"
+            cols="12"
+            sm="12"
+            md="8"
+            lg="8"
+          >
             <ValidationObserver ref="form" v-slot="{ handleSubmit, reset }">
               <form
                 @submit.prevent="handleSubmit(submit)"
@@ -141,7 +156,14 @@
               </form>
             </ValidationObserver>
           </v-col>
-          <v-col cols="4" class="text-center">
+          <v-col
+            order-sm="1"
+            cols="12"
+            sm="12"
+            md="4"
+            lg="4"
+            class="text-center"
+          >
             <v-btn text @click="toggleShow">Upload Thumbnails</v-btn>
             <my-upload
               field="img"
@@ -154,11 +176,16 @@
               img-format="jpg"
               langType="en"
             ></my-upload>
-            <v-responsive style="max-width: 100%">
+            <v-responsive width="330" class="mx-auto">
               <div v-if="!imgDataUrl" class="px-12" id="image-placeholder">
                 <v-icon>mdi-image-plus</v-icon>
               </div>
-              <v-img v-else height="350" :src="imgDataUrl"></v-img>
+              <v-img
+                v-else
+                max-width="330"
+                height="350"
+                :src="imgDataUrl"
+              ></v-img>
             </v-responsive>
           </v-col>
         </v-row>
@@ -267,8 +294,8 @@ export default {
 }
 
 #image-placeholder {
-  padding-top: 5em;
-  padding-bottom: 5em;
+  padding-top: 8em;
+  padding-bottom: 8em;
   border: 2px dashed rgb(209, 209, 209);
 }
 </style>

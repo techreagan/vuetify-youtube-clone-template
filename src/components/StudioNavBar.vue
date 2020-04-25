@@ -141,8 +141,8 @@
               :key="item.title"
               link
               class="mb-0"
-              router
-              :to="item.link"
+              :to="item.link === '' ? '' : item.link"
+              @click="settingsMoal(item.title)"
               exact
               active-class="active-item"
             >
@@ -171,13 +171,14 @@
                 color="red"
                 depressed
                 fab
+                to="/channels/222"
                 class="white--text mx-auto"
               >
                 <h1 class="display-1">T</h1>
               </v-btn>
             </v-list-item>
 
-            <v-list-item link>
+            <v-list-item link to="/channels/222">
               <v-list-item-content>
                 <v-list-item-title class="title">Tech Reagan</v-list-item-title>
                 <v-list-item-subtitle
@@ -193,11 +194,16 @@
       :open-dialog="dialog"
       v-on:closeDialog="dialog = false"
     />
+    <settings-modal
+      :open-dialog="settingsDialog"
+      v-on:closeDialog="settingsDialog = false"
+    />
   </nav>
 </template>
 
 <script>
 import UploadVideoModal from '@/components/UploadVideoModal'
+import SettingsModal from '@/components/SettingsModal'
 export default {
   name: 'StudioNavBar',
   data: () => ({
@@ -214,33 +220,33 @@ export default {
           },
           {
             title: 'Playlists',
-            link: '/playlists',
+            link: '#p',
             icon: 'mdi-playlist-play'
           },
           {
             title: 'Analytics',
-            link: '/analytics',
+            link: '#a',
             icon: 'mdi-poll-box'
           },
           {
             title: 'Comments',
-            link: '/comments',
+            link: '#c',
             icon: 'mdi-message-reply-text'
           },
 
           {
             title: 'Subtitles',
-            link: '/subtitles',
+            link: '#s',
             icon: 'mdi-subtitles'
           },
           {
             title: 'Monetization',
-            link: '/monetization',
+            link: '#m',
             icon: 'mdi-currency-usd'
           },
           {
             title: 'Audio library',
-            link: '/subscriptions',
+            link: '#al',
             icon: 'mdi-music-box-multiple'
           }
         ]
@@ -250,23 +256,24 @@ export default {
         pages: [
           {
             title: 'Settings',
-            link: '/library',
-            icon: 'mdi-play-box-multiple'
+            link: '',
+            icon: 'mdi-cog'
           },
           {
             title: 'Send feedback',
-            link: '/history',
+            link: '#sf',
             icon: 'mdi-history'
           },
           {
             title: 'Creator Studio Classic',
-            link: '/your-videos',
+            link: '#cs',
             icon: 'mdi-play-box-outline'
           }
         ]
       }
     ],
-    dialog: false
+    dialog: false,
+    settingsDialog: false
   }),
   methods: {
     search() {
@@ -274,10 +281,15 @@ export default {
     },
     modal() {
       this.dialog = true
+    },
+    settingsMoal(title) {
+      if (title !== 'Settings') return
+      this.settingsDialog = true
     }
   },
   components: {
-    UploadVideoModal
+    UploadVideoModal,
+    SettingsModal
   },
   mounted() {
     this.drawer = this.$vuetify.breakpoint.mdAndDown ? false : true
