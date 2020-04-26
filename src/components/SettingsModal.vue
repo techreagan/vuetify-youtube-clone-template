@@ -148,7 +148,11 @@
               class="mx-auto"
               style="border-radius: 50%;"
             >
-              <div v-if="!imgDataUrl" class="px-12" id="image-placeholder">
+              <div
+                v-if="!imgDataUrl"
+                class="px-12"
+                id="settings-image-placeholder"
+              >
                 <v-icon>mdi-image-plus</v-icon>
               </div>
               <v-img v-else height="220" :src="imgDataUrl"></v-img>
@@ -242,7 +246,7 @@ export default {
   border-bottom: 1px solid rgb(238, 232, 232);
 }
 
-#settings #image-placeholder {
+#settings-image-placeholder {
   padding-top: 7em;
   padding-bottom: 7em;
   border: 2px dashed rgb(209, 209, 209);
