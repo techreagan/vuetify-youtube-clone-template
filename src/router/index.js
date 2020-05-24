@@ -100,6 +100,15 @@ const routes = [
       default: () =>
         import(/* webpackChunkName: "video" */ '../views/History.vue')
     }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    components: {
+      NavBar,
+      default: () =>
+        import(/* webpackChunkName: "video" */ '../views/Search.vue')
+    }
   }
 ]
 

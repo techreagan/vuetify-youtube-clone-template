@@ -15,6 +15,7 @@
         placeholder="Search"
         outlined
         dense
+        v-model="searchText"
         @click:append="search"
         class="hidden-sm-and-down"
       ></v-text-field>
@@ -210,12 +211,12 @@ export default {
           },
           {
             title: 'History',
-            link: '#h',
+            link: '/history',
             icon: 'mdi-history'
           },
           {
             title: 'Your videos',
-            link: '#yv',
+            link: '/channels/ddd',
             icon: 'mdi-play-box-outline'
           },
 
@@ -315,11 +316,16 @@ export default {
       { text: 'Privacy', link: '#' },
       { text: 'Policy & Safety', link: '#' },
       { text: 'Test new features', link: '#' }
-    ]
+    ],
+    searchText: ''
   }),
   methods: {
     search() {
-      console.log('hello')
+      if (!this.searchText) return
+      this.$router.push({
+        name: 'Search',
+        query: { 'search-query': this.searchText }
+      })
     }
   },
   mounted() {
