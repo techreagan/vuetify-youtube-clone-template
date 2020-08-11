@@ -4,7 +4,7 @@
       <v-col cols="12" xs="12" sm="8" md="8" lg="7" class="ma-auto">
         <v-card class="px-4 pt-6 pb-12" outlined>
           <v-row class="justify-space-between">
-            <v-col cols="6">
+            <v-col cols="12" sm="12" md="6">
               <v-card-title class="text-center">VueTube</v-card-title>
               <v-card-subtitle class="mb-5"
                 >Create your VueTube account</v-card-subtitle
@@ -94,7 +94,7 @@
                 </ValidationObserver>
               </v-card-text>
             </v-col>
-            <v-col cols="5" class="align-self-center">
+            <v-col cols="5" class="align-self-center hidden-sm-and-down">
               <v-responsive>
                 <svg
                   id="b59c9f89-c93e-413f-a14b-776784e615e2"
