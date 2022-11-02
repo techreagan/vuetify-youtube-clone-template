@@ -11,7 +11,7 @@
     "core-js": "^3.6.4",
     "plyrue": "^2.1.6",
     "vee-validate": "^3.2.5",
-    "video.js": "^7.7.5",
+    "video.js": "^7.20.3",
     "vue": "^2.6.11",
     "vue-image-crop-upload": "^2.5.0",
     "vue-router": "^3.1.6",
